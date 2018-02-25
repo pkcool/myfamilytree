@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Person.
+    -->
+    <changeSet id="20180225083001-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="father_id"
+                                 baseTableName="person"
+                                 constraintName="fk_person_father_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"/>
+
+        <addForeignKeyConstraint baseColumnNames="mother_id"
+                                 baseTableName="person"
+                                 constraintName="fk_person_mother_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"/>
+
+        <addForeignKeyConstraint baseColumnNames="spouse_id"
+                                 baseTableName="person"
+                                 constraintName="fk_person_spouse_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"/>
+
+        <addForeignKeyConstraint baseColumnNames="people_id"
+                                 baseTableName="person_source"
+                                 constraintName="fk_person_source_people_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"/>
+        <addForeignKeyConstraint baseColumnNames="sources_id"
+                                 baseTableName="person_source"
+                                 constraintName="fk_person_source_sources_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="static_source"/>
+        
+    </changeSet>
+</databaseChangeLog>

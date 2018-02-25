@@ -1,0 +1,115 @@
+<div>
+    <h2>
+        <span jhiTranslate="myfamilytreeApp.person.home.title">People</span>
+        <button class="btn btn-primary float-right jh-create-entity create-person-mft" [routerLink]="['/', { outlets: { popup: ['person-mft-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="myfamilytreeApp.person.home.createLabel">
+            Create new Person
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'myfamilytreeApp.person.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="people">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="idNumber"><span jhiTranslate="myfamilytreeApp.person.idNumber">Id Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="surname"><span jhiTranslate="myfamilytreeApp.person.surname">Surname</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="foreNames"><span jhiTranslate="myfamilytreeApp.person.foreNames">Fore Names</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="sex"><span jhiTranslate="myfamilytreeApp.person.sex">Sex</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="placeOfBirth"><span jhiTranslate="myfamilytreeApp.person.placeOfBirth">Place Of Birth</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateOfBirth"><span jhiTranslate="myfamilytreeApp.person.dateOfBirth">Date Of Birth</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="placeOfDeath"><span jhiTranslate="myfamilytreeApp.person.placeOfDeath">Place Of Death</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateOfDeath"><span jhiTranslate="myfamilytreeApp.person.dateOfDeath">Date Of Death</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="briefNote"><span jhiTranslate="myfamilytreeApp.person.briefNote">Brief Note</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="notes"><span jhiTranslate="myfamilytreeApp.person.notes">Notes</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fatherId"><span jhiTranslate="myfamilytreeApp.person.father">Father</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="motherId"><span jhiTranslate="myfamilytreeApp.person.mother">Mother</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="spouseId"><span jhiTranslate="myfamilytreeApp.person.spouse">Spouse</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let person of people ;trackBy: trackId">
+                <td><a [routerLink]="['../person-mft', person.id ]">{{person.id}}</a></td>
+                <td>{{person.idNumber}}</td>
+                <td>{{person.surname}}</td>
+                <td>{{person.foreNames}}</td>
+                <td jhiTranslate="{{'myfamilytreeApp.Sex.' + person.sex}}">{{person.sex}}</td>
+                <td>{{person.placeOfBirth}}</td>
+                <td>{{person.dateOfBirth | date:'mediumDate'}}</td>
+                <td>{{person.placeOfDeath}}</td>
+                <td>{{person.dateOfDeath | date:'mediumDate'}}</td>
+                <td>{{person.briefNote}}</td>
+                <td>{{person.notes}}</td>
+                <td>
+                    <div *ngIf="person.fatherId">
+                        <a [routerLink]="['../person-mft', person.fatherId  ]" >{{person.fatherId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="person.motherId">
+                        <a [routerLink]="['../person-mft', person.motherId  ]" >{{person.motherId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="person.spouseId">
+                        <a [routerLink]="['../person-mft', person.spouseId  ]" >{{person.spouseId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../person-mft', person.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'person-mft/'+ person.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'person-mft/'+ person.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="people && people.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+    "myfamilytreeApp": {
+        "Sex" : {
+            "null": "",
+            "MALE": "MALE",
+            "FEMALE": "FEMALE",
+            "UNKNOWN": "UNKNOWN"
+        }
+    }
+}
