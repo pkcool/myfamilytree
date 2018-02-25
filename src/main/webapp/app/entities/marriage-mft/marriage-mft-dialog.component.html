@@ -1,0 +1,64 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMarriageLabel" jhiTranslate="myfamilytreeApp.marriage.home.createOrEditLabel">Create or edit a Marriage</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!marriage.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="marriage.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.marriage.dateOfMarriage" for="field_dateOfMarriage">Date Of Marriage</label>
+            <div class="input-group">
+                <input id="field_dateOfMarriage" type="text" class="form-control" name="dateOfMarriage" ngbDatepicker  #dateOfMarriageDp="ngbDatepicker" [(ngModel)]="marriage.dateOfMarriage"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dateOfMarriageDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.marriage.endOfMarriage" for="field_endOfMarriage">End Of Marriage</label>
+            <div class="input-group">
+                <input id="field_endOfMarriage" type="text" class="form-control" name="endOfMarriage" ngbDatepicker  #endOfMarriageDp="ngbDatepicker" [(ngModel)]="marriage.endOfMarriage"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="endOfMarriageDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.marriage.notes" for="field_notes">Notes</label>
+            <input type="text" class="form-control" name="notes" id="field_notes"
+                [(ngModel)]="marriage.notes" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.marriage.male" for="field_male">Male</label>
+            <select class="form-control" id="field_male" name="male" [(ngModel)]="marriage.maleId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="personOption.id" *ngFor="let personOption of males; trackBy: trackPersonById">{{personOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.marriage.female" for="field_female">Female</label>
+            <select class="form-control" id="field_female" name="female" [(ngModel)]="marriage.femaleId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="personOption.id" *ngFor="let personOption of females; trackBy: trackPersonById">{{personOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

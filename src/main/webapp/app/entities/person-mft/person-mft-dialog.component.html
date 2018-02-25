@@ -1,0 +1,115 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPersonLabel" jhiTranslate="myfamilytreeApp.person.home.createOrEditLabel">Create or edit a Person</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!person.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="person.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.idNumber" for="field_idNumber">Id Number</label>
+            <input type="text" class="form-control" name="idNumber" id="field_idNumber"
+                [(ngModel)]="person.idNumber" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.surname" for="field_surname">Surname</label>
+            <input type="text" class="form-control" name="surname" id="field_surname"
+                [(ngModel)]="person.surname" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.foreNames" for="field_foreNames">Fore Names</label>
+            <input type="text" class="form-control" name="foreNames" id="field_foreNames"
+                [(ngModel)]="person.foreNames" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.sex" for="field_sex">Sex</label>
+            <select class="form-control" name="sex" [(ngModel)]="person.sex" id="field_sex" >
+                <option value="MALE">{{'myfamilytreeApp.Sex.MALE' | translate}}</option>
+                <option value="FEMALE">{{'myfamilytreeApp.Sex.FEMALE' | translate}}</option>
+                <option value="UNKNOWN">{{'myfamilytreeApp.Sex.UNKNOWN' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.placeOfBirth" for="field_placeOfBirth">Place Of Birth</label>
+            <input type="text" class="form-control" name="placeOfBirth" id="field_placeOfBirth"
+                [(ngModel)]="person.placeOfBirth" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.dateOfBirth" for="field_dateOfBirth">Date Of Birth</label>
+            <div class="input-group">
+                <input id="field_dateOfBirth" type="text" class="form-control" name="dateOfBirth" ngbDatepicker  #dateOfBirthDp="ngbDatepicker" [(ngModel)]="person.dateOfBirth"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dateOfBirthDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.placeOfDeath" for="field_placeOfDeath">Place Of Death</label>
+            <input type="text" class="form-control" name="placeOfDeath" id="field_placeOfDeath"
+                [(ngModel)]="person.placeOfDeath" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.dateOfDeath" for="field_dateOfDeath">Date Of Death</label>
+            <div class="input-group">
+                <input id="field_dateOfDeath" type="text" class="form-control" name="dateOfDeath" ngbDatepicker  #dateOfDeathDp="ngbDatepicker" [(ngModel)]="person.dateOfDeath"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dateOfDeathDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.briefNote" for="field_briefNote">Brief Note</label>
+            <input type="text" class="form-control" name="briefNote" id="field_briefNote"
+                [(ngModel)]="person.briefNote" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.notes" for="field_notes">Notes</label>
+            <input type="text" class="form-control" name="notes" id="field_notes"
+                [(ngModel)]="person.notes" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.father" for="field_father">Father</label>
+            <select class="form-control" id="field_father" name="father" [(ngModel)]="person.fatherId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="personOption.id" *ngFor="let personOption of fathers; trackBy: trackPersonById">{{personOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.mother" for="field_mother">Mother</label>
+            <select class="form-control" id="field_mother" name="mother" [(ngModel)]="person.motherId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="personOption.id" *ngFor="let personOption of mothers; trackBy: trackPersonById">{{personOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myfamilytreeApp.person.spouse" for="field_spouse">Spouse</label>
+            <select class="form-control" id="field_spouse" name="spouse" [(ngModel)]="person.spouseId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="personOption.id" *ngFor="let personOption of spouses; trackBy: trackPersonById">{{personOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="myfamilytreeApp.person.source" for="field_source">Source</label>
+            <select class="form-control" id="field_source" multiple name="source" [(ngModel)]="person.sources">
+                <option [ngValue]="getSelected(person.sources, staticSourceOption)" *ngFor="let staticSourceOption of staticsources; trackBy: trackStaticSourceById">{{staticSourceOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
