@@ -1,0 +1,7 @@
+ID;ID_NUMBER;SURNAME;FORE_NAMES;SEX;PLACE_OF_BIRTH;DATE_OF_BIRTH;PLACE_OF_DEATH;DATE_OF_DEATH;BRIEF_NOTE;NOTES;FATHER_ID;MOTHER_ID;SPOUSE_ID
+5;10005;Wang;Social;FEMALE;SYDNEY;1941-05-09;null;null;bn5;null;null;null;null
+6;10006;Chen;Social;MALE;SYDNEY;1940-05-09;null;null;bn6;null;null;null;5
+4;10004;Shi;Bmo;FEMALE;SYDNEY;1961-05-06;null;null;bn4;null;null;null;null
+3;10003;Chen;JpMorgan;MALE;SYDNEY;1960-03-07;null;null;bn3;null;6;5;4
+2;10002;Chen;Honey;FEMALE;SYDNEY;1981-03-03;null;null;bn2;null;null;null;null
+1;10001;Chen;Bob;MALE;SYDNEY;1980-02-02;null;null;bn1;null;3;4;2

@@ -7,7 +7,7 @@
         Added the constraints for entity Person.
     -->
     <changeSet id="20180225085435-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="father_id"
                                  baseTableName="person"
                                  constraintName="fk_person_father_id"
@@ -36,6 +36,12 @@
                                  constraintName="fk_person_source_sources_id"
                                  referencedColumnNames="id"
                                  referencedTableName="static_source"/>
-        
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/person.csv"
+                  separator=";"
+                  tableName="person">
+        </loadData>
+
     </changeSet>
 </databaseChangeLog>
