@@ -1,0 +1,86 @@
+
+<div *ngIf="person">
+    <h2><span jhiTranslate="myfamilytreeApp.person.detail.title">Person</span> {{person.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="myfamilytreeApp.person.idNumber">Id Number</span></dt>
+        <dd>
+            <span>{{person.idNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.surname">Surname</span></dt>
+        <dd>
+            <span>{{person.surname}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.foreNames">Fore Names</span></dt>
+        <dd>
+            <span>{{person.foreNames}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.sex">Sex</span></dt>
+        <dd>
+            <span jhiTranslate="{{'myfamilytreeApp.Sex.' + person.sex}}">{{person.sex}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.placeOfBirth">Place Of Birth</span></dt>
+        <dd>
+            <span>{{person.placeOfBirth}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.dateOfBirth">Date Of Birth</span></dt>
+        <dd>
+            <span>{{person.dateOfBirth | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.placeOfDeath">Place Of Death</span></dt>
+        <dd>
+            <span>{{person.placeOfDeath}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.dateOfDeath">Date Of Death</span></dt>
+        <dd>
+            <span>{{person.dateOfDeath | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.briefNote">Brief Note</span></dt>
+        <dd>
+            <span>{{person.briefNote}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.notes">Notes</span></dt>
+        <dd>
+            <span>{{person.notes}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.father">Father</span></dt>
+        <dd>
+            <div *ngIf="person.fatherId">
+                <a [routerLink]="['/person-mft', person.fatherId]">{{person.fatherId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.mother">Mother</span></dt>
+        <dd>
+            <div *ngIf="person.motherId">
+                <a [routerLink]="['/person-mft', person.motherId]">{{person.motherId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.spouse">Spouse</span></dt>
+        <dd>
+            <div *ngIf="person.spouseId">
+                <a [routerLink]="['/person-mft', person.spouseId]">{{person.spouseId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.person.person">Person</span></dt>
+        <dd>
+            <div *ngIf="person.personId">
+                <a [routerLink]="['/person-mft', person.personId]">{{person.personId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'person-mft/'+ person.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

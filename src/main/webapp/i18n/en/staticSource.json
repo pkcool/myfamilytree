@@ -1,0 +1,25 @@
+
+{
+    "myfamilytreeApp": {
+        "staticSource" : {
+            "home": {
+                "title": "Static Sources",
+                "createLabel": "Create a new Static Source",
+                "createOrEditLabel": "Create or edit a Static Source",
+                "search": "Search for Static Source"
+            },
+            "created": "A new Static Source is created with identifier {{ param }}",
+            "updated": "A Static Source is updated with identifier {{ param }}",
+            "deleted": "A Static Source is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Static Source {{ id }}?"
+            },
+            "detail": {
+                "title": "Static Source"
+            },
+            "sourcePath": "Source Path",
+            "comment": "Comment",
+            "person": "Person"
+        }
+    }
+}

@@ -42,6 +42,11 @@ public class CacheConfiguration {
             cm.createCache(io.myfamilytree.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.myfamilytree.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.myfamilytree.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.myfamilytree.domain.Person.class.getName(), jcacheConfiguration);
+            cm.createCache(io.myfamilytree.domain.Person.class.getName() + ".children", jcacheConfiguration);
+            cm.createCache(io.myfamilytree.domain.Person.class.getName() + ".sources", jcacheConfiguration);
+            cm.createCache(io.myfamilytree.domain.Marriage.class.getName(), jcacheConfiguration);
+            cm.createCache(io.myfamilytree.domain.StaticSource.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

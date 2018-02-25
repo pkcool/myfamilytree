@@ -1,0 +1,25 @@
+
+{
+    "myfamilytreeApp": {
+        "staticSource" : {
+            "home": {
+                "title": "Static Sources",
+                "createLabel": "建立一筆新的 Static Source",
+                "createOrEditLabel": "建立或編輯 Static Source",
+                "search": "搜尋 Static Source"
+            },
+            "created": "新的 Static Source 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Static Source 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Static Source 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Static Source {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Static Source"
+            },
+            "sourcePath": "Source Path",
+            "comment": "Comment",
+            "person": "Person"
+        }
+    }
+}
