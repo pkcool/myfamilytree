@@ -1,0 +1,56 @@
+entity Person {
+	IdNumber String,
+	surname String,
+    foreNames String,
+    sex Sex,
+    placeOfBirth String,
+    dateOfBirth LocalDate,
+    placeOfDeath String,
+    dateOfDeath LocalDate,
+    briefNote String,
+    notes String
+}
+
+relationship OneToOne {
+	Person{father} to Person,
+    Person{mother} to Person,
+    Person{spouse} to Person,
+    
+    Marriage{male} to Person,
+    Marriage{female} to Person
+}
+
+relationship OneToMany {
+	Person{children} to Person
+    Person{source} to StaticSource
+}
+
+enum Sex {
+	MALE, FEMALE, UNKNOWN
+}
+
+entity Marriage {
+	dateOfMarriage LocalDate,
+    endOfMarriage LocalDate,
+    notes String
+}
+
+entity StaticSource {
+	sourcePath String,
+    comment String
+}
+
+
+// Set pagination options
+paginate Person, Marriage, StaticSource with pagination
+
+dto * with mapstruct
+
+// enable filter
+filter * except StaticSource
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+angularSuffix * with mft
