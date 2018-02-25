@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "male",
+            "otherEntityName": "person",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "marriage"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "female",
+            "otherEntityName": "person",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "marriage"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dateOfMarriage",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "endOfMarriage",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180225085436",
+    "entityTableName": "marriage",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true
+}

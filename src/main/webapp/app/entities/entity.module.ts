@@ -1,9 +1,15 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+import { MyfamilytreePersonModule } from './person/person.module';
+import { MyfamilytreeMarriageModule } from './marriage/marriage.module';
+import { MyfamilytreeStaticSourceModule } from './static-source/static-source.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
     imports: [
+        MyfamilytreePersonModule,
+        MyfamilytreeMarriageModule,
+        MyfamilytreeStaticSourceModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

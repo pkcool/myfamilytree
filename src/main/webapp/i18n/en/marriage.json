@@ -1,0 +1,27 @@
+
+{
+    "myfamilytreeApp": {
+        "marriage" : {
+            "home": {
+                "title": "Marriages",
+                "createLabel": "Create a new Marriage",
+                "createOrEditLabel": "Create or edit a Marriage",
+                "search": "Search for Marriage"
+            },
+            "created": "A new Marriage is created with identifier {{ param }}",
+            "updated": "A Marriage is updated with identifier {{ param }}",
+            "deleted": "A Marriage is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Marriage {{ id }}?"
+            },
+            "detail": {
+                "title": "Marriage"
+            },
+            "dateOfMarriage": "Date Of Marriage",
+            "endOfMarriage": "End Of Marriage",
+            "notes": "Notes",
+            "male": "Male",
+            "female": "Female"
+        }
+    }
+}
