@@ -1,0 +1,38 @@
+
+{
+    "myfamilytreeApp": {
+        "person" : {
+            "home": {
+                "title": "People",
+                "createLabel": "建立一筆新的 Person",
+                "createOrEditLabel": "建立或編輯 Person",
+                "search": "搜尋 Person"
+            },
+            "created": "新的 Person 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Person 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Person 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Person {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Person"
+            },
+            "idNumber": "Id Number",
+            "surname": "Surname",
+            "foreNames": "Fore Names",
+            "sex": "Sex",
+            "placeOfBirth": "Place Of Birth",
+            "dateOfBirth": "Date Of Birth",
+            "placeOfDeath": "Place Of Death",
+            "dateOfDeath": "Date Of Death",
+            "briefNote": "Brief Note",
+            "notes": "Notes",
+            "father": "Father",
+            "mother": "Mother",
+            "spouse": "Spouse",
+            "person": "Person",
+            "children": "Children",
+            "source": "Source"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+
+{
+    "myfamilytreeApp": {
+        "marriage" : {
+            "home": {
+                "title": "Marriages",
+                "createLabel": "建立一筆新的 Marriage",
+                "createOrEditLabel": "建立或編輯 Marriage",
+                "search": "搜尋 Marriage"
+            },
+            "created": "新的 Marriage 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Marriage 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Marriage 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Marriage {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Marriage"
+            },
+            "dateOfMarriage": "Date Of Marriage",
+            "endOfMarriage": "End Of Marriage",
+            "notes": "Notes",
+            "male": "Male",
+            "female": "Female"
+        }
+    }
+}

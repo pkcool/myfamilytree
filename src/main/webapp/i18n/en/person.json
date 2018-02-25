@@ -1,0 +1,38 @@
+
+{
+    "myfamilytreeApp": {
+        "person" : {
+            "home": {
+                "title": "People",
+                "createLabel": "Create a new Person",
+                "createOrEditLabel": "Create or edit a Person",
+                "search": "Search for Person"
+            },
+            "created": "A new Person is created with identifier {{ param }}",
+            "updated": "A Person is updated with identifier {{ param }}",
+            "deleted": "A Person is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Person {{ id }}?"
+            },
+            "detail": {
+                "title": "Person"
+            },
+            "idNumber": "Id Number",
+            "surname": "Surname",
+            "foreNames": "Fore Names",
+            "sex": "Sex",
+            "placeOfBirth": "Place Of Birth",
+            "dateOfBirth": "Date Of Birth",
+            "placeOfDeath": "Place Of Death",
+            "dateOfDeath": "Date Of Death",
+            "briefNote": "Brief Note",
+            "notes": "Notes",
+            "father": "Father",
+            "mother": "Mother",
+            "spouse": "Spouse",
+            "person": "Person",
+            "children": "Children",
+            "source": "Source"
+        }
+    }
+}
