@@ -1,0 +1,46 @@
+
+<div *ngIf="marriage">
+    <h2><span jhiTranslate="myfamilytreeApp.marriage.detail.title">Marriage</span> {{marriage.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="myfamilytreeApp.marriage.dateOfMarriage">Date Of Marriage</span></dt>
+        <dd>
+            <span>{{marriage.dateOfMarriage | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.marriage.endOfMarriage">End Of Marriage</span></dt>
+        <dd>
+            <span>{{marriage.endOfMarriage | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.marriage.notes">Notes</span></dt>
+        <dd>
+            <span>{{marriage.notes}}</span>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.marriage.male">Male</span></dt>
+        <dd>
+            <div *ngIf="marriage.maleId">
+                <a [routerLink]="['/person', marriage.maleId]">{{marriage.maleId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="myfamilytreeApp.marriage.female">Female</span></dt>
+        <dd>
+            <div *ngIf="marriage.femaleId">
+                <a [routerLink]="['/person', marriage.femaleId]">{{marriage.femaleId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'marriage/'+ marriage.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

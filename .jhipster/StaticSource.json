@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "person",
+            "otherEntityName": "person",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "source"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "sourcePath",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180225085437",
+    "entityTableName": "static_source",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}
