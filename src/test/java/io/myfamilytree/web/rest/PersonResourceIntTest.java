@@ -1,21 +1,16 @@
 package io.myfamilytree.web.rest;
 
 import io.myfamilytree.MyfamilytreeApp;
-
-import io.myfamilytree.domain.Person;
-import io.myfamilytree.domain.Person;
-import io.myfamilytree.domain.Person;
 import io.myfamilytree.domain.Person;
 import io.myfamilytree.domain.StaticSource;
+import io.myfamilytree.domain.enumeration.Sex;
 import io.myfamilytree.repository.PersonRepository;
-import io.myfamilytree.service.PersonService;
 import io.myfamilytree.repository.search.PersonSearchRepository;
+import io.myfamilytree.service.PersonQueryService;
+import io.myfamilytree.service.PersonService;
 import io.myfamilytree.service.dto.PersonDTO;
 import io.myfamilytree.service.mapper.PersonMapper;
 import io.myfamilytree.web.rest.errors.ExceptionTranslator;
-import io.myfamilytree.service.dto.PersonCriteria;
-import io.myfamilytree.service.PersonQueryService;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,8 +35,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import io.myfamilytree.domain.enumeration.Sex;
 /**
  * Test class for the PersonResource REST controller.
  *
@@ -146,6 +139,7 @@ public class PersonResourceIntTest {
 
     @Before
     public void initTest() {
+        personRepository.deleteAll();
         personSearchRepository.deleteAll();
         person = createEntity(em);
     }
