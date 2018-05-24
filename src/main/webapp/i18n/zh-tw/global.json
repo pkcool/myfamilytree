@@ -7,6 +7,7 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "實體",
+                "familytree": "tree",
                 "person": "Person",
                 "marriage": "Marriage",
                 "staticSource": "Static Source",

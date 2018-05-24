@@ -12,7 +12,7 @@ import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.inter
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
 import { MyfamilytreeSharedModule, UserRouteAccessService } from './shared';
 import { MyfamilytreeAppRoutingModule} from './app-routing.module';
-import { MyfamilytreeHomeModule } from './home/home.module';
+import { MyfamilytreeHomeModule } from './home';
 import { MyfamilytreeAdminModule } from './admin/admin.module';
 import { MyfamilytreeAccountModule } from './account/account.module';
 import { MyfamilytreeEntityModule } from './entities/entity.module';
@@ -27,6 +27,7 @@ import {
     ActiveMenuDirective,
     ErrorComponent
 } from './layouts';
+import {FamilyTreeViewModule} from './familytree/familytree.module';
 
 @NgModule({
     imports: [
@@ -39,6 +40,7 @@ import {
         MyfamilytreeAccountModule,
         MyfamilytreeEntityModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
+        FamilyTreeViewModule,
     ],
     declarations: [
         JhiMainComponent,
